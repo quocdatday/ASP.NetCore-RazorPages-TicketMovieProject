@@ -325,3 +325,9 @@ D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\runtimes\win\l
 D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\System.Reactive.dll
 D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\System.Reactive.xml
+D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\bundleconfig.json
+D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Configuration.dll
+D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Console.dll
+D:\BackEnd\TicketMovieProject\TicketMovieProject\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
