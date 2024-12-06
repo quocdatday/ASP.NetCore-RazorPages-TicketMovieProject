@@ -29,12 +29,12 @@ namespace ASPNetCoreRazorPage_TicketMovie
             // Kết nối tới Database
             builder.Services.AddDbContext<AppDataContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ShopOnline"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("MovieTicket"));
             });
 
-            //builder.Services.AddDefaultIdentity<AuthUser>(options => options.SignIn.RequireConfirmedAccount = false)
-            //    .AddRoles<IdentityRole>()
-            //    .AddEntityFrameworkStores<AppDataContext>();
+            builder.Services.AddDefaultIdentity<UserOA>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AppDataContext>();
 
             // Ràng buộc khi đăng kí tài khoản
             builder.Services.Configure<IdentityOptions>(options => {

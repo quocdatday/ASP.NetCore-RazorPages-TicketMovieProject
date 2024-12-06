@@ -25,11 +25,9 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
             }
             var admin = new IdentityRole("admin");
             admin.NormalizedName = "admin";
-            var staff = new IdentityRole("staff");
-            staff.NormalizedName = "staff";
             var user = new IdentityRole("user");
             user.NormalizedName = "user";
-            builder.Entity<IdentityRole>().HasData(admin, staff, user);
+            builder.Entity<IdentityRole>().HasData(admin, user);
         }
     }
 }
