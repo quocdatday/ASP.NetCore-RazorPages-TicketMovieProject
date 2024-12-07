@@ -1,12 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 namespace ASPNetCoreRazorPage_TicketMovie.Models
 {
     public class AppDataContext : IdentityDbContext<UserOA>
     {
-        public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
+        public AppDataContext(DbContextOptions options) : base(options)
         {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // Cấu hình để bỏ qua cảnh báo PendingModelChangesWarning
+            optionsBuilder.ConfigureWarnings(warnings =>
+                warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -25,9 +32,12 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
             }
             var admin = new IdentityRole("admin");
             admin.NormalizedName = "admin";
+            var staff = new IdentityRole("staff");
+            staff.NormalizedName = "staff";
             var user = new IdentityRole("user");
             user.NormalizedName = "user";
-            builder.Entity<IdentityRole>().HasData(admin, user);
+            builder.Entity<IdentityRole>().HasData(admin, staff, user);
+
         }
     }
 }

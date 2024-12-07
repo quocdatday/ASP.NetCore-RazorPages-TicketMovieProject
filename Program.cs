@@ -15,17 +15,6 @@ namespace ASPNetCoreRazorPage_TicketMovie
             // Add services to the container.
             builder.Services.AddRazorPages();
 
-            // Thêm dịch vụ bảo mật CORS
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll", policy =>
-                {
-                    policy.AllowAnyOrigin()  // Cho phép mọi domain
-                          .AllowAnyMethod()  // Cho phép mọi HTTP method (GET, POST, PUT, DELETE, ...)
-                          .AllowAnyHeader(); // Cho phép mọi header
-                });
-            });
-
             // Kết nối tới Database
             builder.Services.AddDbContext<AppDataContext>(options =>
             {
@@ -36,30 +25,41 @@ namespace ASPNetCoreRazorPage_TicketMovie
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AppDataContext>();
 
-            // Ràng buộc khi đăng kí tài khoản
-            builder.Services.Configure<IdentityOptions>(options => {
-                // Thiết lập về Password
-                options.Password.RequireDigit = false; // Không bắt phải có số
-                options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
-                options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
-                options.Password.RequireUppercase = false; // Không bắt buộc chữ in
-                options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
-                options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
-
-                // Cấu hình Lockout - khóa user
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30); // Khóa 30 phút
-                options.Lockout.MaxFailedAccessAttempts = 5; // Thất bại 5 lầ thì khóa
-                options.Lockout.AllowedForNewUsers = true;
-
-                // Cấu hình về User.
-                options.User.AllowedUserNameCharacters = // các ký tự đặt tên user
-                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-                options.User.RequireUniqueEmail = true;  // Email là duy nhất
-
-                // Cấu hình đăng nhập.
-                options.SignIn.RequireConfirmedEmail = false;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
-                options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
+            // Thêm dịch vụ bảo mật CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin()  // Cho phép mọi domain
+                          .AllowAnyMethod()  // Cho phép mọi HTTP method (GET, POST, PUT, DELETE, ...)
+                          .AllowAnyHeader(); // Cho phép mọi header
+                });
             });
+            
+            // Ràng buộc khi đăng kí tài khoản
+            //builder.Services.Configure<IdentityOptions>(options => {
+            //     Thiết lập về Password
+            //    options.Password.RequireDigit = false; // Không bắt phải có số
+            //    options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
+            //    options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
+            //    options.Password.RequireUppercase = false; // Không bắt buộc chữ in
+            //    options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
+            //    options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
+
+            //     Cấu hình Lockout - khóa user
+            //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30); // Khóa 30 phút
+            //    options.Lockout.MaxFailedAccessAttempts = 5; // Thất bại 5 lầ thì khóa
+            //    options.Lockout.AllowedForNewUsers = true;
+
+            //     Cấu hình về User.
+            //    options.User.AllowedUserNameCharacters = // các ký tự đặt tên user
+            //        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+            //    options.User.RequireUniqueEmail = true;  // Email là duy nhất
+
+            //     Cấu hình đăng nhập.
+            //    options.SignIn.RequireConfirmedEmail = false;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
+            //    options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
+            //});
 
             // Tăng giới hạn form
             builder.Services.Configure<FormOptions>(options =>
