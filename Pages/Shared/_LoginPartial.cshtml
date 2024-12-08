@@ -4,25 +4,26 @@
 @inject SignInManager<UserOA> SignInManager
 @inject UserManager<UserOA> UserManager
 
-<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
-        </form>
-    </li>
+    <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle fw-bold text-uppercase" data-bs-toggle="dropdown">
+            <span class="highlight">Hi @UserManager.GetUserName(User)</span>
+        </a>
+        <div class="dropdown-menu bg-light mt-2">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" class="dropdown-item">Profile</a>
+            <a asp-area="Identity" asp-page="/Account/Logout" class="dropdown-item">Logout</a>
+        </div>
+    </div>
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    </ul>
 }
-</ul>

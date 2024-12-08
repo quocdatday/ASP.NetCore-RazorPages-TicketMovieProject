@@ -6,7 +6,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
 {
     public class AppDataContext : IdentityDbContext<UserOA>
     {
-        public AppDataContext(DbContextOptions options) : base(options)
+        public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
