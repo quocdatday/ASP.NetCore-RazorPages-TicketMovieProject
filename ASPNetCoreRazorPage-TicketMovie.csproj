@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="datatables.net-bs5" Version="2.1.8" />
+    <PackageReference Include="datatables.net-responsive-bs5" Version="3.0.3" />
+    <PackageReference Include="datatables.net-scroller-bs5" Version="2.4.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
