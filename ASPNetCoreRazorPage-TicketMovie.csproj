@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Pages\Admin\Shared\" />
   </ItemGroup>
 
 </Project>
