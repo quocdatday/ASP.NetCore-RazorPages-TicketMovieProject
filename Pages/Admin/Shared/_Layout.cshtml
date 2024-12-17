@@ -45,71 +45,11 @@
                             <span class="hide-menu">MANANGER</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Movie",required:false)" href="/Admin/Movie" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Movie</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Screen",required:false)" href="/Admin/Screen" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Screen</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Cinema",required:false) " href="/Admin/Cinema" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Cinema</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Room",required:false)" href="/Admin/Room" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Room</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Seat",required:false)" href="/Admin/Seat" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:text-field-focus-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Seat</span>
-                            </a>
-                        </li>
-                        <li class="nav-small-cap">
-                            <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6"></iconify-icon>
-                            <span class="hide-menu">AUTH</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Category",required:false) " href="/Admin/Category" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Category</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Review",required:false)" href="/Admin/Review" aria-expanded="false">
+                            <a class="sidebar-link @await RenderSectionAsync("User",required:false)" href="/Admin/User" aria-expanded="false">
                                 <span>
                                     <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
                                 </span>
-                                <span class="hide-menu">Review</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Voucher",required:false)" href="/Admin/Voucher" aria-expanded="false">
-                                <span>
-                                    <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
-                                </span>
-                                <span class="hide-menu">Voucher</span>
+                                <span class="hide-menu">User</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -121,11 +61,77 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("User",required:false)" href="/Admin/User" aria-expanded="false">
+                            <a class="sidebar-link @await RenderSectionAsync("Category",required:false) " href="/Admin/Category" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Category</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Cinema",required:false) " href="/Admin/Cinema" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Cinema</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Movie",required:false)" href="/Admin/Movie" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Movie</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("MovieDetail",required:false) " href="/Admin/MovieDetail" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">MovieDetail</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Payment",required:false)" href="/Admin/Payment" aria-expanded="false">
                                 <span>
                                     <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
                                 </span>
-                                <span class="hide-menu">User</span>
+                                <span class="hide-menu">Payment</span>
+                            </a>
+                        </li>
+                         <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Review",required:false)" href="/Admin/Review" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Review</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Room",required:false)" href="/Admin/Room" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Screen",required:false)" href="/Admin/Screen" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Screen</span>
+                            </a>
+                        </li>
+                        
+                        
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("Seat",required:false)" href="/Admin/Seat" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:text-field-focus-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Seat</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -137,15 +143,21 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link @await RenderSectionAsync("Payment",required:false)" href="/Admin/Payment" aria-expanded="false">
+                            <a class="sidebar-link @await RenderSectionAsync("Voucher",required:false)" href="/Admin/Voucher" aria-expanded="false">
                                 <span>
                                     <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
                                 </span>
-                                <span class="hide-menu">Payment</span>
+                                <span class="hide-menu">Voucher</span>
                             </a>
                         </li>
-
- 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link @await RenderSectionAsync("VoucherOfUser",required:false)" href="/Admin/VoucherOfUser" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">VoucherOfUser</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
