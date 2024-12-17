@@ -8,13 +8,14 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         [Key]
         public int SEASO_ID { get; set; }
         public string? USER_ID { get; set; }
+        public int SEA_ID { get; set; }
         public string? Name { get; set; }
         public DateTime TimeStart { get; set; }
-        public DateTime TimeEend { get; set; }
-        public int? Room { get; set; } 
-        public string? Status { get; set; } 
-        public string? SEA_ID { get; set; } 
+        public DateTime TimeEnd { get; set; }
+        public string? Status { get; set; }
+        [ForeignKey("SEA_ID")]
+        public Seat? Seat { get; set; }
 
-        
+
     }
 }

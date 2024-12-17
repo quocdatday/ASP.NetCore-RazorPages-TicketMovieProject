@@ -9,6 +9,19 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
         {
         }
+        public DbSet<Banner> Banners { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Cinema> Cinemas { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<MovieDetail> MovieDetails { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Screen> Screens { get; set; }
+        public DbSet<Seat> Seats { get; set; }
+        public DbSet<SeatSold> SeatSolds { get; set; }
+        public DbSet<Voucher> Vouchers { get; set; }
+        public DbSet<VoucherOfUser> VoucherOfUsers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Cấu hình để bỏ qua cảnh báo PendingModelChangesWarning

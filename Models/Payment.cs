@@ -7,11 +7,12 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
     {
         [Key]
         public int PAY_ID { get; set; }
+        public string? UserId { get; set; }
+        public int SEASO_ID  { get; set; }
         public string? Name { get; set; }
         public int Price { get; set; }
         public int Discount { get; set; }
         public int Total { get; set; }
-        public int SEASO_ID  { get; set; }
-        public string? UserId { get; set; }
+        public ICollection<SeatSold>? SeatSolds { get; set; }
     }       
 }

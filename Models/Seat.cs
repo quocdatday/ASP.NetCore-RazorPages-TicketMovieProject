@@ -13,6 +13,6 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         public int Price { get; set; }
         [ForeignKey("ROO_ID")]
         public Room? Room { get; set; }
-
+        public ICollection<SeatSold>? SeatSolds { get; set; }
     }
 }

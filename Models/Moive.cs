@@ -10,7 +10,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         public int MOV_ID { get; set; }
         public int CAT_ID { get; set; }
         public string? Name { get; set; }
-        public string? Gender  { get; set; }
+        public string? Image  { get; set; }
         public int Duration { get; set; }
         public DateTime PublichDate { get; set; }
         public DateTime StopPublichDate { get; set; }

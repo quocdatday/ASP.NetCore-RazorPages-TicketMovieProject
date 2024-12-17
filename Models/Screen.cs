@@ -9,8 +9,8 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         public int SCR_ID { get; set; }
         public int CIN_ID { get; set; }
         public int MOV_ID { get; set; }
-        public string? ScreenStart { get; set; }
-        public string? ScreenEnd { get; set; } 
+        public DateTime TimeStart { get; set; }
+        public DateTime TimeEnd { get; set; } 
         public DateTime? Date { get; set; }
         [ForeignKey("CIN_ID")]
         public Cinema? Cinema { get; set; }

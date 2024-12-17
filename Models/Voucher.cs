@@ -6,7 +6,8 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
     public class Voucher : ModelBase
     {
         [Key]
-         public int VOU_ID { get; set; }
+        public int VOU_ID { get; set; }
+        public string? Name { get; set; }
         public int Percent { get; set; }
         public DateTime ExpiryDate { get; set; }
     }

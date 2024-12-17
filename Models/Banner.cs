@@ -6,7 +6,6 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
     public class Banner : ModelBase
     {
         [Key]
-        [Column("Id")]
         public int BAN_ID { get; set; }
         public string? Image { get; set; }
         public string? Name  { get; set; }

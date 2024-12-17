@@ -6,16 +6,12 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
     public class Cinema : ModelBase
     {
         [Key]
-        [Column("Id")]
-        public string? CIN_ID { get; set; }
+        public int? CIN_ID { get; set; }
         public string? Name { get; set; }
         public string? Email { get; set; }
         public string? Location { get; set; } 
         public string? Phone { get; set; } 
         public ICollection<Screen>? Screens { get; set; }
         public ICollection<Room>? Rooms { get; set; }
-
-
-    
     }
  }
