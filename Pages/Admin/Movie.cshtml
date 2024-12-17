@@ -16,18 +16,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-              
-            </tr>
+            @if(Model.Movies != null && Model.Movies.Any()){
+                foreach(var mov in Model.Movies){
+                    <tr data-id="@mov.MOV_ID">
+                        <td>@mov.MOV_ID</td>
+                        <td>@mov.Name</td>
+                        <td>@mov.Category?.Type</td>
+                        <td>@mov.PublichDate</td>
+                        <td>@mov.StopPublichDate</td>
+                        <td>@mov.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else{
+                <tr>
+                    <td colspan="7" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
  </div>
