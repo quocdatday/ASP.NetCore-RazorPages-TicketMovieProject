@@ -1,11 +1,36 @@
 ﻿@page
 @model ASPNetCoreRazorPage_TicketMovie.Pages.Admin.SeatModel
-@{
-}<div class="container-fluid">
-    <table id="example" class="table table-striped" style="width:100%">
-    </table>
+@{}
+    <div class="container-fluid">
+        <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Room</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Create Day</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button"><i class="ti ti-edit"></i></button>
+                        <button type="button"><i class="ti ti-trash"></i></button>
+                    </td>
 
-</div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 @section Seat {
     active
 }
