@@ -15,19 +15,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button"><i class="ti ti-edit"></i></button>
-                        <button type="button"><i class="ti ti-trash"></i></button>
-                    </td>
-
-                </tr>
+                @if(Model.Seats != null && Model.Seats.Any()){
+                    foreach(var seat in Model.Seats){
+                    <tr data-id="@seat.SEA_ID">
+                        <td>@seat.SEA_ID</td>
+                        <td>@seat.Room!.Name</td>
+                        <td>@seat.Name</td>
+                        <td>@seat.Type</td>
+                        <td>@seat.Price</td>
+                        <td>@seat.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                    }
+                }
+                else 
+                {
+                    <tr>
+                        <td colspan="7" class="text-center">Have no data</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

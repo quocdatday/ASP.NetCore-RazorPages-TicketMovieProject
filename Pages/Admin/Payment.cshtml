@@ -12,26 +12,42 @@
                     <th>Price</th>
                     <th>Discount</th>
                     <th>Total</th>
-                    <th>Create Day</th>
+                    <th>CreateDate</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button"><i class="ti ti-edit"></i></button>
-                        <button type="button"><i class="ti ti-trash"></i></button>
-                    </td>
+                @if(Model.Payments != null && Model.Payments.Any()){
+                    foreach(var pay in Model.Payments){
+                    <tr data-id="@pay.PAY_ID">
+                        <td>@pay.PAY_ID</td>
+                        <td>@pay.UserId</td>
+                        <td>
+                            @if(pay.SeatSolds != null && pay.SeatSolds.Any()){
+                                foreach(var ss in pay.SeatSolds){
+                                    <p class="d-inline">@ss ,</p>
+                                }
+                            }
+                        </td>
+                        <td>@pay.Name</td>
+                        <td>@pay.Price</td>
+                        <td>@pay.Discount</td>
+                        <td>@pay.Total</td>
+                        <td>@pay.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
 
-                </tr>
+                    </tr>
+                    }
+                }
+                else 
+                {
+                    <tr>
+                        <td colspan="8" class="text-center">Have no data</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

@@ -11,24 +11,32 @@
                 <th>Email</th>
                 <th>Location</th>
                 <th>Phone</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
+            @if(Model.Cinemas != null && Model.Cinemas.Any()){
+                foreach(var cins in Model.Cinemas){
+                    <tr data-id="@cins.CIN_ID">
+                        <td>@cins.CIN_ID</td>
+                        <td>@cins.Name</td>
+                        <td>@cins.Email</td>
+                        <td>@cins.Location</td>
+                        <td>@cins.Phone</td>
+                        <td>@cins.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
 
-            </tr>
+                    </tr>
+                }
+            }else{
+                <tr>
+                    <td colspan="7" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

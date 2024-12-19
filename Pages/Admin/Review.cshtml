@@ -12,25 +12,33 @@
                 <th>UserName</th>
                 <th>Comment</th>
                 <th>Rating</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if(Model.Reviews != null && Model.Reviews.Any()){
+                foreach(var rev in Model.Reviews){
+                    <tr data-id="@rev.REV_ID">
+                        <td>@rev.REV_ID</td>
+                        <td>@rev.Movie!.Name</td>
+                        <td>@rev.UserID</td>
+                        <td>@rev.UserID</td>
+                        <td>@rev.Comment</td>
+                        <td>@rev.Rating</td>
+                        <td>@rev.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else{
+                <tr>
+                    <td colspan="8" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

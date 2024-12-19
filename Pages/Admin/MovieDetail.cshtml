@@ -7,32 +7,39 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
                 <th>Diractor</th>
                 <th>Actor</th>
                 <th>Description</th>
                 <th>Category</th>
                 <th>Country</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if(Model.MoveDetails != null && Model.MoveDetails.Any()){
+                foreach(var mvdt in Model.MoveDetails){
+                    <tr data-id="@mvdt.MOVDT_ID">
+                        <td>@mvdt.MOVDT_ID </td>
+                        <td>@mvdt.Director</td>
+                        <td>@mvdt.Actor</td>
+                        <td>@mvdt.Description</td>
+                        <td>@mvdt.Type</td>
+                        <td>@mvdt.Country</td>
+                        <td>@mvdt.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

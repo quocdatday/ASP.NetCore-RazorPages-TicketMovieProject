@@ -17,20 +17,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if(Model.Screens != null && Model.Screens.Any()){
+                foreach(var scr in Model.Screens){
+                    <tr data-id="@scr.SCR_ID">
+                        <td>@scr.SCR_ID</td>
+                        <td>@scr.Room!.Cinema!.Name</td>
+                        <td>@scr.Movie!.Name</td>
+                        <td>@scr.TimeStart</td>
+                        <td>@scr.TimeEnd</td>
+                        <td>@scr.Date</td>
+                        <td>@scr.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

@@ -9,22 +9,29 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Cinema</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if(Model.Rooms != null && Model.Rooms.Any()){
+                foreach(var roo in Model.Rooms){
+                    <tr data-id="@roo.ROO_ID">
+                        <td>@roo.ROO_ID</td>
+                        <td>@roo.Name</td>
+                        <td>@roo.Cinema!.Name?</td>
+                        <td>@roo.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }else {
+                <tr>
+                    <td colspan="5" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

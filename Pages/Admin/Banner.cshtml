@@ -1,5 +1,5 @@
 ﻿@page
-@model BannerModel
+@model ASPNetCoreRazorPage_TicketMovie.Pages.Admin.BannerModel
 @{
 }
 <div class="container-fluid">
@@ -9,22 +9,36 @@
                 <th>Id</th>
                 <th>Image</th>
                 <th>Name</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if(Model.Banners != null && Model.Banners.Any())
+            {
+                foreach(var bans in Model.Banners){
+                   <tr data-id="@bans.BAN_ID">
+                       <td>@bans.BAN_ID</td>
+                       <td>@bans.Image</td>
+                       <td>@bans.Name</td>
+                       <td>@bans.CreatedDate</td>
+                       <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                       </td>
+                   </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="5" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

@@ -9,22 +9,30 @@
                 <th>Id</th>
                 <th>Type</th>
                 <th>Age</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
+            @if(Model.Categories != null && Model.Categories.Any()){
+                foreach(var cats in Model.Categories){
+                    <tr data-id="@cats.CAT_ID">
+                        <td>@cats.CAT_ID</td>
+                        <td>@cats.Type</td>
+                        <td>@cats.Age</td>
+                        <td>@cats.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
 
-            </tr>
+                    </tr>
+                }
+            }else{
+                <tr>
+                    <td colspan="5" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
