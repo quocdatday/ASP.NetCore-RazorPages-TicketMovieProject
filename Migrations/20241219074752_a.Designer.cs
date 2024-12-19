@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPNetCoreRazorPage_TicketMovie.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20241217045239_UpdateTable")]
-    partial class UpdateTable
+    [Migration("20241219074752_a")]
+    partial class a
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("BAN_ID");
@@ -67,7 +67,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("CAT_ID");
@@ -98,7 +98,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("CIN_ID");
@@ -135,7 +135,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<DateTime>("StopPublichDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("MOV_ID");
@@ -174,7 +174,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("MOVDT_ID");
@@ -205,13 +205,10 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("SEASO_ID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Total")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
@@ -242,7 +239,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserID")
@@ -275,7 +272,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ROO_ID");
@@ -293,7 +290,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SCR_ID"));
 
-                    b.Property<int>("CIN_ID")
+                    b.Property<int?>("CinemaCIN_ID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
@@ -305,20 +302,28 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<int>("MOV_ID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ROO_ID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("TimeEnd")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("TimeStart")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("SCR_ID");
 
-                    b.HasIndex("CIN_ID");
+                    b.HasIndex("CinemaCIN_ID");
 
                     b.HasIndex("MOV_ID");
+
+                    b.HasIndex("ROO_ID");
 
                     b.ToTable("Screen");
                 });
@@ -346,7 +351,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("SEA_ID");
@@ -370,7 +375,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PaymentPAY_ID")
+                    b.Property<int?>("PAY_ID")
                         .HasColumnType("int");
 
                     b.Property<int>("SEA_ID")
@@ -388,12 +393,12 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("USER_ID")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("SEASO_ID");
 
-                    b.HasIndex("PaymentPAY_ID");
+                    b.HasIndex("PAY_ID");
 
                     b.HasIndex("SEA_ID");
 
@@ -500,7 +505,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<int>("Percent")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("VOU_ID");
@@ -522,7 +527,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.Property<string>("USE_ID")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("VOU_ID")
@@ -564,19 +569,19 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "956ccab1-fd08-43b3-b605-ceb7792d41ad",
+                            Id = "bd6f790f-c4c2-4469-a6fa-d9d289d5ba48",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "468294e3-3b13-4200-9e8e-06903c02e1dc",
+                            Id = "5b0ad371-245f-46c0-80ea-f2f722a9f03e",
                             Name = "staff",
                             NormalizedName = "staff"
                         },
                         new
                         {
-                            Id = "f49b5c42-4ec4-4e30-884b-e5fa3d931b94",
+                            Id = "6fa68e8b-b4c4-4822-b761-18c5bb56cea4",
                             Name = "user",
                             NormalizedName = "user"
                         });
@@ -738,11 +743,9 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
 
             modelBuilder.Entity("ASPNetCoreRazorPage_TicketMovie.Models.Screen", b =>
                 {
-                    b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Cinema", "Cinema")
+                    b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Cinema", null)
                         .WithMany("Screens")
-                        .HasForeignKey("CIN_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CinemaCIN_ID");
 
                     b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Movie", "Movie")
                         .WithMany("Screens")
@@ -750,9 +753,15 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cinema");
+                    b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Room", "Room")
+                        .WithMany("screens")
+                        .HasForeignKey("ROO_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Movie");
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("ASPNetCoreRazorPage_TicketMovie.Models.Seat", b =>
@@ -768,15 +777,17 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
 
             modelBuilder.Entity("ASPNetCoreRazorPage_TicketMovie.Models.SeatSold", b =>
                 {
-                    b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Payment", null)
+                    b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Payment", "Payment")
                         .WithMany("SeatSolds")
-                        .HasForeignKey("PaymentPAY_ID");
+                        .HasForeignKey("PAY_ID");
 
                     b.HasOne("ASPNetCoreRazorPage_TicketMovie.Models.Seat", "Seat")
                         .WithMany("SeatSolds")
                         .HasForeignKey("SEA_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Payment");
 
                     b.Navigation("Seat");
                 });
@@ -872,6 +883,8 @@ namespace ASPNetCoreRazorPage_TicketMovie.Migrations
             modelBuilder.Entity("ASPNetCoreRazorPage_TicketMovie.Models.Room", b =>
                 {
                     b.Navigation("Seats");
+
+                    b.Navigation("screens");
                 });
 
             modelBuilder.Entity("ASPNetCoreRazorPage_TicketMovie.Models.Seat", b =>

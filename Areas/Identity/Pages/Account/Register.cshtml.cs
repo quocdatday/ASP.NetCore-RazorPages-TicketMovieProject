@@ -131,6 +131,7 @@ namespace ASPNetCoreRazorPage_TicketMovie.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     Email = Input.Email,
+                    UserName = Input.Email,
                     Address = Input.Address,
                     CreatedDate = DateTime.Now,
                 };
