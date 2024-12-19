@@ -12,5 +12,6 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         [ForeignKey("CIN_ID")]
         public Cinema? Cinema { get; set; }
         public ICollection<Seat>? Seats { get; set; }
+        public ICollection<Screen>? screens { get; set; }
     }
 }
