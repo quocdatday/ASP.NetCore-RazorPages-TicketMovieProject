@@ -12,9 +12,13 @@ namespace ASPNetCoreRazorPage_TicketMovie.Pages
             _logger = logger;
         }
 
-        public IActionResult OnGet()
+        //public IActionResult OnGet()
+        //{
+        //    return RedirectToPage("/Admin/Index");
+        //}
+        public void OnGet()
         {
-            return RedirectToPage("/Admin/Index");
+
         }
     }
 }
