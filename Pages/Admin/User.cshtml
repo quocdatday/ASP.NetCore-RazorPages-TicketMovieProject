@@ -14,18 +14,26 @@
             </tr>
         </thead>
         <tbody>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if(Model.Users != null && Model.Users.Any()){
+                foreach(var us in Model.Users){
+                    <tr data-id="@us.Id">
+                        <td>@us.FirstName</td>
+                        <td>@us.LastName</td>
+                        <td>@us.Address</td>
+                        <td>@us.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

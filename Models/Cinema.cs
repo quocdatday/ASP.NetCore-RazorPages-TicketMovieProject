@@ -11,7 +11,6 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
         public string? Email { get; set; }
         public string? Location { get; set; } 
         public string? Phone { get; set; } 
-        public ICollection<Screen>? Screens { get; set; }
         public ICollection<Room>? Rooms { get; set; }
     }
  }

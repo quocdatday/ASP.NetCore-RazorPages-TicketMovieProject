@@ -13,25 +13,35 @@
                 <th>Time Start</th>
                 <th>Time End</th>
                 <th>Status</th>
-                <th>Create Day</th>
+                <th>CreateDate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-            </tr>
+            @if(Model.SeatSolds != null && Model.SeatSolds.Any()){
+                foreach(var ss in Model.SeatSolds){
+                    <tr data-id="@ss.SEASO_ID">
+                        <td>@ss.SEASO_ID</td>
+                        <td>@ss.USER_ID</td>
+                        <td>@ss.Seat!.SEA_ID</td>
+                        <td>@ss.Name</td>
+                        <td>@ss.TimeStart</td>
+                        <td>@ss.TimeEnd</td>
+                        <td>@ss.Status</td>
+                        <td>@ss.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

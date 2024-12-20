@@ -15,18 +15,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button"><i class="ti ti-edit"></i></button>
-                    <button type="button"><i class="ti ti-trash"></i></button>
-                </td>
-
-            </tr>
+            @if (Model.Vouchers != null && Model.Vouchers.Any())
+            {
+                foreach (var vc in Model.Vouchers)
+                {
+                    <tr data-id="@vc.VOU_ID">
+                        <td>@vc.VOU_ID</td>
+                        <td>@vc.Name</td>
+                        <td>@vc.Percent</td>
+                        <td>@vc.ExpiryDate</td>
+                        <td>@vc.CreatedDate</td>
+                        <td>
+                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button"><i class="ti ti-trash"></i></button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">Have no data</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

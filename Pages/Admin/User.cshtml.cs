@@ -27,7 +27,6 @@ namespace ASPNetCoreRazorPage_TicketMovie.Pages.Admin
         {
             _userManager = userManager;
             _userStore = userStore;
-            //_emailStore = GetEmailStore();
             _signInManager = signInManager;
             //_logger = logger;
         }
