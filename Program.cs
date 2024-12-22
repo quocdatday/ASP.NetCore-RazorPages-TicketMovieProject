@@ -15,6 +15,9 @@ namespace ASPNetCoreRazorPage_TicketMovie
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            //Thêm dịch vụ API Gmail
+            builder.Services.AddSingleton<GmailAPI>();
+
             // Kết nối tới Database
             builder.Services.AddDbContext<AppDataContext>(options =>
             {
