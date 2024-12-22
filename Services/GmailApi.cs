@@ -3,10 +3,13 @@ using Google.Apis.Gmail.v1;
 using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using NuGet.Protocol;
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +17,7 @@ public class GmailAPI
 {
     private readonly string[] Scopes = { GmailService.Scope.GmailReadonly };
     private readonly string ApplicationName = "Your Application Name";
-    private GmailService _gmailService;
+    private GmailService? _gmailService;
 
     public async Task InitializeServiceAsync()
     {
@@ -37,7 +40,7 @@ public class GmailAPI
 
     public async Task<Message> GetLatestBankEmailAsync(string bankEmail)
     {
-        var request = _gmailService.Users.Messages.List("me");
+        var request = _gmailService!.Users.Messages.List("me");
         request.Q = $"from:{bankEmail}";
         var response = await request.ExecuteAsync();
 
@@ -67,6 +70,23 @@ public class GmailAPI
         try
         {
             var decodedBody = Encoding.UTF8.GetString(Convert.FromBase64String(bodyData.Replace('-', '+').Replace('_', '/')));
+            int LengthBody = decodedBody.Length - decodedBody.IndexOf("Tài") - (decodedBody.Length - decodedBody.IndexOf("</p></p>")); 
+            decodedBody = decodedBody.Substring(decodedBody.IndexOf("Tài"), LengthBody);
+
+            string datePattern = @"\b\d{2}/\d{2}/\d{4}\b"; // Tìm ngày dạng dd/MM/yyyy
+            string timePattern = @"\b\d{2}:\d{2}\b"; // Tìm giờ dạng HH:mm:ss
+
+            Match dateMatch = Regex.Match(decodedBody, datePattern);
+            Match timeMatch = Regex.Match(decodedBody, timePattern);
+            if (dateMatch.Success)
+            {
+                decodedBody = decodedBody + "-----" + dateMatch;
+            }
+            if (timeMatch.Success)
+            {
+                decodedBody = decodedBody + "-----" + timeMatch;
+            }
+
             return decodedBody;
         }
         catch (FormatException)
