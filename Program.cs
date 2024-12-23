@@ -12,6 +12,9 @@ namespace ASPNetCoreRazorPage_TicketMovie
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            //Chấp nhận mọi IP 
+            builder.WebHost.UseUrls("https://0.0.0.0:7096");
+
             // Add services to the container.
             builder.Services.AddRazorPages();
 

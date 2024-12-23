@@ -74,7 +74,7 @@ public class GmailAPI
             decodedBody = decodedBody.Substring(decodedBody.IndexOf("Tài"), LengthBody);
 
             string datePattern = @"\b\d{2}/\d{2}/\d{4}\b"; // Tìm ngày dạng dd/MM/yyyy
-            string timePattern = @"\b\d{2}:\d{2}\b"; // Tìm giờ dạng HH:mm:ss
+            string timePattern = @"\b\d{2}:\d{2}\b"; // Tìm giờ dạng HH:mm
 
             Match dateMatch = Regex.Match(decodedBody, datePattern);
             Match timeMatch = Regex.Match(decodedBody, timePattern);
