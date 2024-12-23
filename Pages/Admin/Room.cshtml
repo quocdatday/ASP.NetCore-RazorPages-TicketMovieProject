@@ -23,7 +23,7 @@
                         <td>@roo.CreatedDate</td>
                         <td>
                             <button type="button"><i class="ti ti-edit"></i></button>
-                            <button type="button"><i class="ti ti-trash"></i></button>
+                            <button type="button" onclick="Delete(@roo.ROO_ID)"><i class="ti ti-trash"></i></button>
                         </td>
                     </tr>
                 }
@@ -35,6 +35,7 @@
         </tbody>
     </table>
 </div>
+<partial name="/Pages/Admin/Shared/_DeletesPartial.cshtml" />
 @section Room {
     active
 }

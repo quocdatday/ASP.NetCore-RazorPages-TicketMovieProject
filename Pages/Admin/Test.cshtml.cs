@@ -18,7 +18,9 @@ namespace ASPNetCoreRazorPage_TicketMovie.Pages.Admin
         public async Task OnGetAsync()
         {
             await _gmailService.InitializeServiceAsync();
-            var email = await _gmailService.GetLatestBankEmailAsync("support@timo.vn");
+            var date = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
+            string content = "tãng";
+            var email = await _gmailService.GetLatestBankEmailAsync("support@timo.vn", content, date);
 
             if (email != null)
             {

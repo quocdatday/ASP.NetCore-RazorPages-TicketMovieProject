@@ -1,0 +1,18 @@
+﻿<div id="Delete" class="fixed-top top-100 container">
+    <div class="row justify-content-center">
+        <div class="col-auto p-0 pb-3 shadow-lg bg-light text-center rounded-bottom d-flex flex-column">
+            <p class="mb-4 bg-danger text-white p-3 rounded-top">
+                Are you sure to delete ?
+            </p>
+            <form method="post" asp-page-handler="Delete">
+                <input id="DeleteValue" type="text" value=""/>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button id="btnDlt" type="submit" class="btn btn-danger me-2">Yes</button>
+                        <button type="button" onclick="Delete('')" class="btn btn-primary">No</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

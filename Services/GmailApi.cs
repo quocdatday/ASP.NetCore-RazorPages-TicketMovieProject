@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 public class GmailAPI
 {
     private readonly string[] Scopes = { GmailService.Scope.GmailReadonly };
-    private readonly string ApplicationName = "Your Application Name";
+    private readonly string ApplicationName = "Movie Ticket";
     private GmailService? _gmailService;
 
     public async Task InitializeServiceAsync()
@@ -38,10 +38,10 @@ public class GmailAPI
         });
     }
 
-    public async Task<Message> GetLatestBankEmailAsync(string bankEmail)
+    public async Task<Message> GetLatestBankEmailAsync(string bankEmail, string content, DateOnly DayAffter)
     {
         var request = _gmailService!.Users.Messages.List("me");
-        request.Q = $"from:{bankEmail}";
+        request.Q = $"from:{bankEmail} {content} after:{DayAffter:yyyy/MM/dd}";
         var response = await request.ExecuteAsync();
 
         if (response.Messages == null || response.Messages.Count == 0)
