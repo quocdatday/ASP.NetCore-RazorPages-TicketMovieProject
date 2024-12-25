@@ -1,6 +1,7 @@
 ﻿@page
 @model ASPNetCoreRazorPage_TicketMovie.Pages.Admin.SeatModel
 @{}
+<partial name="/Pages/Admin/Shared/_Add.cshtml" />
     <div class="container-fluid">
         <table id="example" class="table table-striped" style="width:100%">
             <thead>
@@ -43,4 +44,12 @@
 <partial name="/Pages/Admin/Shared/_DeletesPartial.cshtml" />
 @section Seat {
     active
+}
+@section Add 
+{
+
+}
+@section Edit 
+{
+
 }

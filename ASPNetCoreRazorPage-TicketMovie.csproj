@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\credentials\" />
   </ItemGroup>
 
 </Project>

@@ -215,7 +215,8 @@
             </div>
         </div>
     </div>
-    
+    @await RenderSectionAsync("Add", required: false)
+    @await RenderSectionAsync("Edit", required: false)
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap and other scripts -->

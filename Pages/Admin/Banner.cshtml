@@ -2,6 +2,8 @@
 @model ASPNetCoreRazorPage_TicketMovie.Pages.Admin.BannerModel
 @{
 }
+<partial name="/Pages/Admin/Shared/_Add.cshtml" />
+
 <div class="container-fluid">
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
@@ -45,4 +47,69 @@
 <partial name="/Pages/Admin/Shared/_DeletesPartial.cshtml" />
 @section Banner {
     active 
+}
+@section Add
+{
+    <div id="Add" class="fixed-top top-100 container">
+        <div class="row justify-content-center">
+            <div class="col-auto p-5 shadow-lg bg-light text-center rounded-bottom d-flex flex-column">
+                <p class="mb-4 bg-light text-dark p-3 rounded-top">Add Banner</p>
+                <div>
+                    <div class="row mb-3">
+                        <label for="Title" class="col-4 text-end">Title:</label>
+                        <input name="" id="Title" type="text" class="col-6 text-start" /><br />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="Url" class="col-4 text-end">Url:</label>
+                        <input name="" id="Url" type="text" class="col-6 text-start" /><br />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="DisplayOrder" class="col-4 text-end">Display order:</label>
+                        <input name="" id="DisplayOrder" type="number" class="col-6 text-start" /><br />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="Image" class="col-4 text-end">Image:</label>
+                        <input name="" id="Image" type="file" class="col-6 text-start" accept=".jpg, .jpeg, .png" /> <br />
+                    </div>
+                    <div>
+                        <button id="btnAdd" type="submit" class="btn btn-primary me-2">Add</button>
+                        <button type="button" onclick="Add()" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Edit
+{
+    <div id="Edit" class="fixed-top top-100 container">
+        <div class="row justify-content-center">
+            <div class="col-auto p-5 shadow-lg bg-light text-center rounded-bottom d-flex flex-column">
+                <p class="mb-4 bg-light text-dark p-3 rounded-top">Edit Banner</p>
+                <div>
+                    <input id="inputEdit" type="text" name="x" value="" hidden />
+                    <div class="row mb-3">
+                        <label for="TitleED" class="col-4 text-end">Title:</label>
+                        <input name="TitleED" id="TitleED" type="text" class="col-6 text-start" /><br />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="UrlED" class="col-4 text-end">Url:</label>
+                        <input name="UrlED" id="UrlED" type="text" class="col-6 text-start" /><br />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="DisplayOrderED" class="col-4 text-end">Display order:</label>
+                        <input name="DisplayOrderED" id="DisplayOrderED" type="number" class="col-6 text-start" /><br />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="ImageED" class="col-4 text-end">Image:</label>
+                        <input name="ImageED" id="ImageED" type="file" class="col-6 text-start" accept=".jpg, .jpeg, .png" /> <br />
+                    </div>
+                    <div>
+                        <button id="btnEdit" type="submit" class="btn btn-primary me-2">Save</button>
+                        <button type="button" onclick="Edit()" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }
