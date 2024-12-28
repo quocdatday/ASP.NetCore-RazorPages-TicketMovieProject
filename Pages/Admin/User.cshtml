@@ -2,6 +2,7 @@
 @model ASPNetCoreRazorPage_TicketMovie.Pages.Admin.UserModel
 @{
 }
+<partial name="/Pages/Admin/Shared/_Add.cshtml" />
 <div class="container-fluid">
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
@@ -40,4 +41,12 @@
 <partial name="/Pages/Admin/Shared/_DeletesPartial.cshtml" />
 @section User {
     active
+}
+@section Add 
+{
+
+}
+@section Edit 
+{
+
 }
