@@ -2,6 +2,7 @@
 @model ASPNetCoreRazorPage_TicketMovie.Pages.Admin.BannerModel
 @{
 }
+<partial name="/Pages/Admin/Shared/_AddPartial.cshtml" />
 <div class="container-fluid">
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
@@ -45,4 +46,29 @@
 <partial name="/Pages/Admin/Shared/_DeletesPartial.cshtml" />
 @section Banner {
     active 
+}
+@section Add {
+    <div id="Add" class="fixed-top top-100 container">
+        <div class="row justify-content-center">
+            <div class="col-auto p-5 shadow-lg bg-light text-center rounded-bottom d-flex flex-column">
+                <p class="mb-4 bg-light text-dark p-3 rounded-top">Add Banner</p>
+                <form method="post" asp-page-handler="Add" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <label asp-for="Images!.Image" class="col-4 text-end">Image:</label>
+                        <input asp-for="Images!.Image" id="Image" type="file" class="col-6 text-start" accept=".jpg, .jpeg, .png" /> <br />
+                        <span asp-validation-for="Images!.Image" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <label asp-for="Ban.Name" class="col-4 text-end">Name:</label>
+                        <input asp-for="Ban.Name" type="text" class="col-6 text-start" /><br />
+                        <span asp-validation-for="Ban.Name" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <button id="btnAdd" type="submit" class="btn btn-primary me-2">Add</button>
+                        <button type="button" onclick="Add()" class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 }

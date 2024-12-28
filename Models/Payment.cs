@@ -7,8 +7,9 @@ namespace ASPNetCoreRazorPage_TicketMovie.Models
     {
         [Key]
         public int PAY_ID { get; set; }
-        public string? UserId { get; set; }
-        public string? Name { get; set; }
+        public string Code { get; set; } = Guid.NewGuid().ToString("N").Substring(0, 6);
+        public string UserId { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public int Price { get; set; }
         public int Discount { get; set; }
         public int Total { get; set; }
