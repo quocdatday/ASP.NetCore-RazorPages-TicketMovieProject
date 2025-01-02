@@ -1,0 +1,9 @@
+﻿{
+  "name": "MovieTicketOnline",
+  "build": {
+    "builder": "NIXPACKS",
+    "nixpacks": {
+      "plan": "dotnet"
+    }
+  }
+}
