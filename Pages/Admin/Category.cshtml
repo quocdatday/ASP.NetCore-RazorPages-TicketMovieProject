@@ -19,11 +19,11 @@
                 foreach(var cats in Model.Categories){
                     <tr data-id="@cats.CAT_ID">
                         <td>@cats.CAT_ID</td>
-                        <td>@cats.Type</td>
-                        <td>@cats.Age</td>
+                        <td data-type="@cats.CAT_ID">@cats.Type</td>
+                        <td data-age="@cats.CAT_ID">@cats.Age</td>
                         <td>@cats.CreatedDate</td>
                         <td>
-                            <button type="button"><i class="ti ti-edit"></i></button>
+                            <button type="button" data-group="edit" data-type="cate" data-id="@cats.CAT_ID"><i class="ti ti-edit"></i></button>
                             <button type="button" onclick="Delete(@cats.CAT_ID)"><i class="ti ti-trash"></i></button>
                         </td>
 
@@ -43,9 +43,54 @@
 }
 @section Add
 {
-
+    <div id="Add" class="fixed-top top-100 container">
+        <div class="row justify-content-center">
+            <div class="col-auto p-5 shadow-lg bg-light text-center rounded-bottom d-flex flex-column">
+                <p class="mb-4 bg-light text-dark p-3 rounded-top">Add Category</p>
+                <form method="post" asp-page-handler="Add">
+                    <div class="row mb-3">
+                        <label asp-for="Category!.Type" class="col-4 text-end">Type:</label>
+                        <input asp-for="Category!.Type" type="text" class="col-6 text-start" required /><br />
+                        <span asp-validation-for="Category!.Type" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <label asp-for="Category!.Age" class="col-4 text-end">Age:</label>
+                        <input asp-for="Category!.Age" type="number" class="col-6 text-start" required /><br />
+                        <span asp-validation-for="Category!.Age" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <button id="btnAdd" type="submit" class="btn btn-primary me-2">Add</button>
+                        <button type="button" onclick="Add()" class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 }
 @section Edit
 {
-
+    <div id="Edit" class="fixed-top top-100 container">
+        <div class="row justify-content-center">
+            <div class="col-auto p-5 shadow-lg bg-light text-center rounded-bottom d-flex flex-column">
+                <p class="mb-4 bg-light text-dark p-3 rounded-top">Edit Banner</p>
+                <form method="post" asp-page-handler="Edit" enctype="multipart/form-data">
+                    <input asp-for="Category!.CAT_ID" id="ID" type="text" class="col-6 text-start" required hidden/><br />
+                    <div class="row mb-3">
+                        <label asp-for="Category!.Type" class="col-4 text-end">Type:</label>
+                        <input asp-for="Category!.Type" id="Type" type="text" class="col-6 text-start" required /><br />
+                        <span asp-validation-for="Category!.Type" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <label asp-for="Category!.Age" class="col-4 text-end">Age:</label>
+                        <input asp-for="Category!.Age" id="Age" type="number" class="col-6 text-start" required /><br />
+                        <span asp-validation-for="Category!.Age" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <button id="btnAdd" type="submit" class="btn btn-primary me-2">Save</button>
+                        <button type="button" onclick="Edit()" class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 }

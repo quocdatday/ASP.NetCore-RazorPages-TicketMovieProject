@@ -9,9 +9,21 @@
     //});
     $(`button[data-group="edit"]`).on('click', function () {
         Edit();
-        var id = $(this).attr("data-id");
-        var name = $(`td[data-name="${id}"]`).text();
-        $("#ID").val(id);
-        $("#Name").val(name);
+        if ($(this).attr("data-type") == "ban") {
+            var id = $(this).attr("data-id");
+            var name = $(`td[data-name="${id}"]`).text();
+            $("#ID").val(id);
+            $("#Name").val(name);
+            return;
+        }
+        if ($(this).attr("data-type") == "cate") {
+            var id = $(this).attr("data-id");
+            var type = $(`td[data-type="${id}"]`).text();
+            var age = $(`td[data-age="${id}"]`).text();
+            $("#ID").val(id);
+            $("#Type").val(type);
+            $("#Age").val(age);
+            return;
+        }
     });
 });
